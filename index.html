@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dead deal darryl</title>
+    <style>
+        h1 {
+            color: orangered;
+            font-size: 30px;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 50px;
+        }
+        .input-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        input[type="text"] {
+            width: 20%;
+            padding: 8px;
+            margin-top: 3px;
+            margin-bottom: 4px;
+            border-radius: 4px;
+            border: 1px solid #000000;
+            font-size: large;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #ffa200;
+            color: black;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: large;
+        }
+        button:hover {
+            background-color: #e18e00;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>oh wise poet,
+        <br>
+        choose your words</h1>
+
+    <form id="inputForm">
+        <div class="input-group">
+            <input type="text" id="input1" name="input1" placeholder="color" required>
+        </div>
+        <div class="input-group">
+            <input type="text" id="input2" name="input2" placeholder="adjective" required>
+        </div>
+        <div class="input-group">
+            <input type="text" id="input3" name="input3" placeholder="noun" required>
+        </div>
+        <div class="input-group">
+            <input type="text" id="input4" name="input4" placeholder="past-tense verb" required>
+        </div>
+        <div class="input-group">
+            <input type="text" id="input5" name="input5" placeholder="adjective" required>
+        </div>
+        <div class="input-group">
+            <input type="text" id="input6" name="input6" placeholder="plural or mass noun" required>
+        </div>
+        <div class="input-group">
+            <input type="text" id="input7" name="input7" placeholder="color" required>
+        </div>
+        <div class="input-group">
+            <input type="text" id="input8" name="input8" placeholder="plural or mass noun" required>
+        </div>
+        <button type="button" onclick="submitForm()">submit</button>
+    </form>
+
+    <script>
+        function submitForm() {
+            // Get the input values
+            const input1 = document.getElementById('input1').value;
+            const input2 = document.getElementById('input2').value;
+            const input3 = document.getElementById('input3').value;
+            const input4 = document.getElementById('input4').value;
+            const input5 = document.getElementById('input5').value;
+            const input6 = document.getElementById('input6').value;
+            const input7 = document.getElementById('input7').value;
+            const input8 = document.getElementById('input8').value;
+
+            function determineArticle() {
+                const firstChar = input1.charAt(0);
+
+                const vowels = ['a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U']
+
+                let article;
+                if (vowels.includes(firstChar)) {
+                    article = "an";
+                } else {
+                    article = "a";
+                }
+
+                return article;
+            }
+
+            let article = determineArticle();
+
+            // Create a new page with the input values
+            const newPage = `
+                <html>
+                    <head>
+                        <title>said steel sparrow</title>
+                        <style>
+                            body {
+                                font-family: Arial, sans-serif;
+                                margin: 50px;
+                            }
+                            h1 {
+                                color: orangered;
+                                font-size: 50px;
+                            }
+                            p {
+                                font-size: 18px;
+                            }
+                        </style>
+                    </head>
+                    <body>
+                        <h1>the ${input1} ${input2}${input3}</h1>
+                        <p>so much depends
+                            <br>
+                            upon</p>
+                        <p>${article} ${input1} ${input2}
+                            <br>
+                            ${input3}</p>
+                        <p>${input4} with ${input5}
+                            <br>
+                            ${input6}</p>
+                        <p>beside the ${input7}
+                            <br>
+                            ${input8}</p>
+                    </body>
+                </html>
+            `;
+
+            // Open the new page with the values
+            const newWindow = window.open();
+            newWindow.document.write(newPage);
+            newWindow.document.close();
+        }
+    </script>
+
+</body>
+</html>
